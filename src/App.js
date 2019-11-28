@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import Content,{id} from './Content'
+import logo from './sw.png';
 import './App.css';
+import Profile from './Profile';
+import {Route,NavLink} from 'react-router-dom'
+import Header from './Header.jsx'
+import {characters} from './map'
 
 function App() {
+  
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Header />
+      <Route exact path="/"
+        render={(props) => characters.map(m => <Content {...props} key={m.id} id={m.id} photo={m.photo}/>)}/>  
+      <Route path="/info"
+        render={(props) => <Profile {...props}  />}/>
+     
+      
     </div>
   );
 }
