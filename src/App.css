@@ -22,7 +22,10 @@
     margin:15px;
     display: inline-block;
     height: 200px;
+<<<<<<< HEAD
     border: 2px solid black;
+=======
+>>>>>>> ab552dde60f20b2ef947357db743dc980e96daff
     
   }
   .card img{
