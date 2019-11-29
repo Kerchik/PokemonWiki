@@ -15,7 +15,7 @@ function App() {
       
       <Header />
       <Route exact path="/"
-        render={(props) => characters.map(m => <Content {...props} key={m.id} id={m.id} photo={m.photo}/>)}/>  
+        render={(props) => characters.map(m => <Content {...props} name={m.name} key={m.id} id={m.id} photo={m.photo}/>)}/>  
       <Route path="/info"
         render={(props) => <Profile {...props}  />}/>
      

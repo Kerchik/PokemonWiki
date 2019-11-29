@@ -16,14 +16,18 @@
   
   }
   .card {
+    position: relative;
     width:200px;
     overflow:hidden;
     margin:15px;
     display: inline-block;
+    height: 200px;
+    border: 2px solid black;
     
   }
   .card img{
     width:200px;
+    height: 200px;
     
   }
   
@@ -32,4 +36,22 @@
   }
   .transform:hover{
     transform: scale(1.2);
+  }
+  .card .onHoverText {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background-color: #fff;
+    color: black;
+    width: 100%;
+  }
+  .profile {
+    margin: 15px;
+    display: flex;
+  }
+  .mainPhoto {
+    width: 150px;
+  }
+  .characterInfo {
+    margin: 25px;
   }

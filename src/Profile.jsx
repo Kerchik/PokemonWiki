@@ -32,14 +32,19 @@ class Profile extends React.Component {
     }
     render() {
         return (
-            <div>
-                <img src={store.photo} />
-                <p>Name: {this.state.name}</p>
-                <p>Height: {this.state.height}</p>
-                <p>Mass: {this.state.mass}</p>
-                <p>Hair Color: {this.state.hairColor}</p>
-                <p>Gender: {this.state.gender}</p>
+            <div className="profile">
+                <div>
+                    <img className="mainPhoto" src={store.photo} />
+                </div>
+                <div className="characterInfo">
+                    <p>Name: {this.state.name}</p>
+                    <p>Height: {this.state.height}</p>
+                    <p>Mass: {this.state.mass}</p>
+                    <p>Hair Color: {this.state.hairColor}</p>
+                    <p>Gender: {this.state.gender}</p>
+                </div>
             </div>
+
         )
 }
 }
