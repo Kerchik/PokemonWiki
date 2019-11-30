@@ -1,5 +1,4 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
 import {store} from './store'
 
 class Profile extends React.Component {
@@ -34,7 +33,7 @@ class Profile extends React.Component {
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" src={store.photo} />
+                    <img className="mainPhoto" alt={this.state.name} src={store.photo} />
                 </div>
                 <div className="characterInfo">
                     <p>Name: {this.state.name}</p>
