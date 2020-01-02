@@ -1,11 +1,15 @@
 import React from 'react'
 import logo from './sw.png';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
     return (
-    <div className="Header">
-            <img src={logo} alt="swLogo" className="graficLogo" />
+      <div className="Header" >
+        <Link to="" >
+            <img src={logo}  alt="swLogo" className="graficLogo" />
+        </Link>
       </div>
+      
     )
 }
 

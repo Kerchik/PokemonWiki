@@ -7,11 +7,14 @@
     display: flex;
     justify-content: center; 
   }
+  .Header a{
+    width: 13%;
+  }
   .graficLogo {
     padding: 5px;
     max-width: 100%;
     box-sizing: border-box;
-    width: 13%;
+    
     
   
   }
@@ -55,4 +58,3 @@
   .characterInfo {
     margin: 25px;
   }
- 
