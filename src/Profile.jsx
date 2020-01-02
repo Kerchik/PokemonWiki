@@ -13,7 +13,7 @@ class Profile extends React.Component {
         }
     }
     componentDidMount() {
-        fetch(`https://swapi.co/api/people/${store.id}`)
+        fetch(`https://swapi.co/api/people/${this.props.id}`)
         .then(data => {
             data.text()
             .then(data2 => {
@@ -33,7 +33,7 @@ class Profile extends React.Component {
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={this.state.name} src={store.photo} />
+                    <img className="mainPhoto" alt={this.state.name} src={this.props.photo} />
                 </div>
                 <div className="characterInfo">
                     <p>Name: {this.state.name}</p>

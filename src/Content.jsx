@@ -3,11 +3,13 @@ import './App.css';
 import {NavLink} from 'react-router-dom'
 import {store} from './store'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
+import { changeId, changePhoto } from "./charactersReducer";
 
 const Content = (props) => {
     let [isHidden, setIsHidden] = useState(true)
     let click = () => {
-        store.id = props.id
+        props.changeId(props.id);
+        props.changePhoto(props.photo);
         store.photo = props.photo
     }
     let textAppear = () => {

@@ -1,19 +1,20 @@
 import React from 'react';
 import Content from './Content'
 import './App.css';
-import Profile from './Profile';
+import ProfileContainer from './ProfileContainer';
 import {Route} from 'react-router-dom'
 import Header from './Header.jsx'
 import {characters} from './map'
+import ContentContainer from './ContentContainer'
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Route exact path="/"
-        render={(props) => characters.map(m => <Content {...props} name={m.name} key={m.id} id={m.id} photo={m.photo}/>)}/>  
+        render={(props) => characters.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo}/>)}/>  
       <Route path="/info"
-        render={(props) => <Profile {...props}  />}/>
+        render={(props) => <ProfileContainer {...props}  />}/>
     </div>
   );
 }
