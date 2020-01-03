@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './sw.png';
+import logo from '../img/sw.png';
 import {Link} from 'react-router-dom';
 
 const Header = () => {

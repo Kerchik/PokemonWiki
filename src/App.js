@@ -1,11 +1,10 @@
 import React from 'react';
-import Content from './Content'
 import './App.css';
-import ProfileContainer from './ProfileContainer';
+import ProfileContainer from './components/ProfileContainer';
 import {Route} from 'react-router-dom'
-import Header from './Header.jsx'
-import {characters} from './map'
-import ContentContainer from './ContentContainer'
+import Header from './components/Header.jsx'
+import {characters} from './redux/characters'
+import ContentContainer from './components/ContentContainer'
 
 function App() {
   return (

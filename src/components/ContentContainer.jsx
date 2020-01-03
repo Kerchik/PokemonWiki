@@ -1,7 +1,6 @@
-import React from 'react';
 import Content from './Content'
 import {connect} from 'react-redux'
-import {changeId, changePhoto} from './charactersReducer'
+import {changeId, changePhoto} from '../redux/charactersReducer'
 
 
 const mapStateToProps = (state) => {

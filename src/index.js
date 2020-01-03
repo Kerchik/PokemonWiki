@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux';
-import store from './reduxStore';
+import store from './redux/reduxStore';
 
 ReactDOM.render((
 <BrowserRouter basename={process.env.PUBLIC_URL}>

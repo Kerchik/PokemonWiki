@@ -1,5 +1,4 @@
 import React from 'react'
-import {store} from './store'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -9,8 +8,22 @@ class Profile extends React.Component {
             height: "",
             mass: "",
             hairColor: "",
-            gender: ""
+            gender: "",
+            homeworld: ""
         }
+        this.homeworld = this.homeworld.bind(this)
+    }
+    homeworld(world) {
+        fetch(world)
+        .then(data => {
+            data.text()
+            .then(data2 => {
+                let json = JSON.parse(data2);
+                this.setState({
+                    homeworld: json.name
+                });
+            })
+        })
     }
     componentDidMount() {
         fetch(`https://swapi.co/api/people/${this.props.id}`)
@@ -23,12 +36,13 @@ class Profile extends React.Component {
                     height: json.height,
                     mass: json.mass,
                     hairColor: json.hair_color,
-                    gender: json.gender,
-                    
+                    gender: json.gender
                 });
+                this.homeworld(json.homeworld)
             })
         })
     }
+    
     render() {
         return (
             <div className="profile">
@@ -36,11 +50,12 @@ class Profile extends React.Component {
                     <img className="mainPhoto" alt={this.state.name} src={this.props.photo} />
                 </div>
                 <div className="characterInfo">
-                    <p>Name: {this.state.name}</p>
-                    <p>Height: {this.state.height}</p>
-                    <p>Mass: {this.state.mass}</p>
-                    <p>Hair Color: {this.state.hairColor}</p>
-                    <p>Gender: {this.state.gender}</p>
+                    {this.state.name &&<p>Name: {this.state.name}</p>}
+                    {this.state.height &&<p>Height: {this.state.height}</p>}
+                    {this.state.mass &&<p>Mass: {this.state.mass}</p>}
+                    {this.state.hairColor &&<p>Hair Color: {this.state.hairColor}</p>}
+                    {this.state.gender &&<p>Gender: {this.state.gender}</p>}
+                    {this.state.homeworld && <p>Homeworld: {this.state.homeworld}</p>}
                 </div>
             </div>
 

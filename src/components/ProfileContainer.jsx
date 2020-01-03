@@ -1,7 +1,6 @@
-import React from 'react';
 import Profile from './Profile'
 import {connect} from 'react-redux'
-import {changeId} from './charactersReducer'
+import {changeId} from '../redux/charactersReducer'
 
 const mapStateToProps = (state) => {
     return {
