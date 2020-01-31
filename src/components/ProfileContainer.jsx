@@ -1,6 +1,7 @@
 import Profile from './Profile'
 import {connect} from 'react-redux'
 import {changeId} from '../redux/charactersReducer'
+import {changeData} from '../redux/profileReducer'
 
 const mapStateToProps = (state) => {
     return {
@@ -12,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         changeId: (newPostText) => {
             dispatch(changeId(newPostText));
+        },
+        changeData: (name,height,mass,hairColor,gender,homeworld) => {
+            dispatch(changeData(name,height,mass,hairColor,gender,homeworld));
         }
     }
 }
