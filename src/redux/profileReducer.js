@@ -1,14 +1,18 @@
 const CHANGE_DATA = "CHANGE_DATA"
 const CLEAR_DATA = "CLEAR_DATA"
 const SET_HOMEWORLD = "SET_HOMEWORLD"
+const SET_PLANET = "SET_PLANET"
 
 let initialState = {
     name: "",
+    planetName: "",
     height: "",
     mass: "",
     hairColor: "",
     gender: "",
-    homeworld: ""
+    homeworld: "",
+    climate: "",
+    rotation: ""
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -21,6 +25,14 @@ const profileReducer = (state = initialState, action) => {
                 mass: action.mass,
                 hairColor: action.hairColor,
                 gender: action.gender,
+            }
+        }
+        case SET_PLANET: {
+            return {
+                ...state, 
+                planetName: action.planetName,
+                climate: action.climate,
+                rotation: action.rotation,
             }
         }
         case SET_HOMEWORLD: {
@@ -37,7 +49,10 @@ const profileReducer = (state = initialState, action) => {
                 mass: "",
                 hairColor: "",
                 gender: "",
-                homeworld: ""
+                homeworld: "",
+                planetName: "",
+                climate: "",
+                rotation: "",
             }
         }
         default:
@@ -46,6 +61,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const changeData = (name,height,mass,hairColor,gender) => ({type: CHANGE_DATA, name,height,mass,hairColor,gender})
+export const setPlanet = (planetName,rotation,climate) => ({type: SET_PLANET, planetName,rotation,climate})
 export const setHomeworld = (homeworld) => ({type: SET_HOMEWORLD, homeworld})
 export const clearData = () => ({type: CLEAR_DATA})
 
@@ -57,6 +73,18 @@ export const getCharacterInfo = (id) => (dispatch) => {
             let json = JSON.parse(data);
             dispatch(changeData(json.name,json.height,json.mass,json.hair_color,json.gender))
             dispatch(getHomeworld(json.homeworld))
+        })
+    }
+    )
+}
+export const getPlanetInfo = (id) => (dispatch) => {
+    api.getPlanet(id)
+    .then(response => {
+        response.text()
+        .then(data => {
+            let json = JSON.parse(data);
+            console.log(json)
+            dispatch(setPlanet(json.name,json.rotation_period,json.climate))
         })
     }
     )
@@ -80,6 +108,9 @@ const api = {
     },
     getHomeworld(ref) {
         return fetch(ref)
+    },
+    getPlanet(id) {
+        return fetch(`https://swapi.co/api/planets/${id}`)
     }
 }
 

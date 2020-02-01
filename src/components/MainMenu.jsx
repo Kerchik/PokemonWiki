@@ -4,11 +4,11 @@ import {NavLink} from 'react-router-dom'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
 
-const Content = (props) => {
+const MainMenu = (props) => {
     let [isHidden, setIsHidden] = useState(true)
     let click = () => {
-        props.changeId(props.id);
-        props.changePhoto(props.photo);
+        //props.changeId(props.id);
+        //props.changePhoto(props.photo);
     }
     let textAppear = () => {
         setIsHidden(false)
@@ -16,10 +16,9 @@ const Content = (props) => {
     let textDissapear = () => {
         setIsHidden(true)
     }
-    const link = `${props.type}/info`
-        return (
+    return (
         <div className="card" onClick={click} onMouseOver={textAppear} onMouseOut={textDissapear}>
-            <NavLink to={link}>
+            <NavLink to={props.name}>
                 <img className="transform" alt={props.name} src={props.photo} id={props.id}/>
                 <TransitionGroup timeout={0}>
                     {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{props.name}</div></CSSTransition>}
@@ -29,4 +28,4 @@ const Content = (props) => {
     )
 }
 
-export default Content
+export default MainMenu
