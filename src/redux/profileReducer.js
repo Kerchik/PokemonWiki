@@ -1,5 +1,6 @@
 const CHANGE_DATA = "CHANGE_DATA"
 const CLEAR_DATA = "CLEAR_DATA"
+const SET_HOMEWORLD = "SET_HOMEWORLD"
 
 let initialState = {
     name: "",
@@ -22,6 +23,12 @@ const profileReducer = (state = initialState, action) => {
                 gender: action.gender,
             }
         }
+        case SET_HOMEWORLD: {
+            return {
+                ...state, 
+                homeworld: action.homeworld
+            }
+        }
         case CLEAR_DATA: {
             return {
                 ...state, 
@@ -30,6 +37,7 @@ const profileReducer = (state = initialState, action) => {
                 mass: "",
                 hairColor: "",
                 gender: "",
+                homeworld: ""
             }
         }
         default:
@@ -38,6 +46,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const changeData = (name,height,mass,hairColor,gender) => ({type: CHANGE_DATA, name,height,mass,hairColor,gender})
+export const setHomeworld = (homeworld) => ({type: SET_HOMEWORLD, homeworld})
 export const clearData = () => ({type: CLEAR_DATA})
 
 export const getCharacterInfo = (id) => (dispatch) => {
@@ -47,6 +56,19 @@ export const getCharacterInfo = (id) => (dispatch) => {
         .then(data => {
             let json = JSON.parse(data);
             dispatch(changeData(json.name,json.height,json.mass,json.hair_color,json.gender))
+            dispatch(getHomeworld(json.homeworld))
+        })
+    }
+    )
+}
+export const getHomeworld = (id) => (dispatch) => {
+    api.getHomeworld(id)
+    .then(response => {
+        response.text()
+        .then(data => {
+            let json = JSON.parse(data);
+            dispatch(setHomeworld(json.name))
+            
         })
     }
     )
@@ -55,6 +77,9 @@ export const getCharacterInfo = (id) => (dispatch) => {
 const api = {
     get(id) {
         return fetch(`https://swapi.co/api/people/${id}`)
+    },
+    getHomeworld(ref) {
+        return fetch(ref)
     }
 }
 

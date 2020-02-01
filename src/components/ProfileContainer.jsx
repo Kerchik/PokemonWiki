@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
         mass: state.profile.mass,
         gender: state.profile.gender,
         hairColor: state.profile.hairColor,
+        homeworld: state.profile.homeworld,
     }
 }
 const mapDispatchToProps = (dispatch) => {
