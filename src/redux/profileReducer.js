@@ -110,7 +110,7 @@ const api = {
         return fetch(ref)
     },
     getPlanet(id) {
-        return fetch(`https://swapi.co/api/planets/${id}`)
+        return fetch(`https://swapi.co/api/planets/${id}`,{method:"POST"})
     }
 }
 
