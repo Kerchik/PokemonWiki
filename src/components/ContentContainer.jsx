@@ -1,6 +1,6 @@
 import Content from './Content'
 import {connect} from 'react-redux'
-import {changeId, changePhoto} from '../redux/charactersReducer'
+import {changeId, changePhoto} from '../redux/dataReducer'
 
 
 const mapDispatchToProps = (dispatch) => {

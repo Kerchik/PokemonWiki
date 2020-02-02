@@ -1,12 +1,12 @@
 import CharactersProfile from './CharactersProfile'
 import {connect} from 'react-redux'
-import {changeId} from '../redux/charactersReducer'
-import {getCharacterInfo,clearData} from '../redux/profileReducer'
+import {changeId} from '../redux/dataReducer'
+import {getCharacterInfo,clearData} from '../redux/charactersReducer'
 
 const mapStateToProps = (state) => {
     return {
-        id: state.characters.id,
-        photo: state.characters.photo,
+        id: state.data.id,
+        photo: state.data.photo,
         name: state.profile.name,
         height: state.profile.height,
         mass: state.profile.mass,
