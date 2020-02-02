@@ -1,7 +1,6 @@
 import PlanetsProfile from './PlanetsProfile'
 import {connect} from 'react-redux'
-import {changeId} from '../redux/charactersReducer'
-import {getCharacterInfo,clearData,getPlanetInfo} from '../redux/profileReducer'
+import {clearData,getPlanetInfo} from '../redux/profileReducer'
 
 const mapStateToProps = (state) => {
     return {
@@ -10,6 +9,8 @@ const mapStateToProps = (state) => {
         planetName: state.profile.planetName,
         climate: state.profile.climate,
         rotation: state.profile.rotation,
+        population: state.profile.population,
+        filmsTitlesArr: state.profile.filmsTitlesArr
     }
 }
 const mapDispatchToProps = (dispatch) => {

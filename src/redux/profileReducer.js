@@ -2,17 +2,20 @@ const CHANGE_DATA = "CHANGE_DATA"
 const CLEAR_DATA = "CLEAR_DATA"
 const SET_HOMEWORLD = "SET_HOMEWORLD"
 const SET_PLANET = "SET_PLANET"
+const SET_FILMS_TITLES = "SET_FILMS_TITLES"
 
 let initialState = {
-    name: "",
-    planetName: "",
-    height: "",
-    mass: "",
-    hairColor: "",
-    gender: "",
-    homeworld: "",
-    climate: "",
-    rotation: ""
+    name: null,
+    planetName: null,
+    height: null,
+    mass: null,
+    hairColor: null,
+    gender: null,
+    homeworld: null,
+    climate: null,
+    rotation: null,
+    population: null,
+    filmsTitlesArr: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -33,6 +36,7 @@ const profileReducer = (state = initialState, action) => {
                 planetName: action.planetName,
                 climate: action.climate,
                 rotation: action.rotation,
+                population: action.population
             }
         }
         case SET_HOMEWORLD: {
@@ -41,18 +45,26 @@ const profileReducer = (state = initialState, action) => {
                 homeworld: action.homeworld
             }
         }
+        case SET_FILMS_TITLES: {
+            return {
+                ...state, 
+                filmsTitlesArr: action.filmsArr
+            }
+        }
         case CLEAR_DATA: {
             return {
                 ...state, 
-                name: "",
-                height: "",
-                mass: "",
-                hairColor: "",
-                gender: "",
-                homeworld: "",
-                planetName: "",
-                climate: "",
-                rotation: "",
+                name: null,
+                planetName: null,
+                height: null,
+                mass: null,
+                hairColor: null,
+                gender: null,
+                homeworld: null,
+                climate: null,
+                rotation: null,
+                population: null,
+                filmsTitlesArr: null
             }
         }
         default:
@@ -61,8 +73,9 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const changeData = (name,height,mass,hairColor,gender) => ({type: CHANGE_DATA, name,height,mass,hairColor,gender})
-export const setPlanet = (planetName,rotation,climate) => ({type: SET_PLANET, planetName,rotation,climate})
+export const setPlanet = (planetName,rotation,climate,population) => ({type: SET_PLANET, planetName,rotation,climate,population})
 export const setHomeworld = (homeworld) => ({type: SET_HOMEWORLD, homeworld})
+export const setFilmsTitles = (filmsArr) => ({type: SET_FILMS_TITLES, filmsArr})
 export const clearData = () => ({type: CLEAR_DATA})
 
 export const getCharacterInfo = (id) => (dispatch) => {
@@ -83,14 +96,16 @@ export const getPlanetInfo = (id) => (dispatch) => {
         response.text()
         .then(data => {
             let json = JSON.parse(data);
-            console.log(json)
-            dispatch(setPlanet(json.name,json.rotation_period,json.climate))
+            dispatch(setPlanet(json.name,json.rotation_period,json.climate,json.population))
+            dispatch(getFilms(json.films))
+            
+
         })
     }
     )
 }
 export const getHomeworld = (id) => (dispatch) => {
-    api.getHomeworld(id)
+    api.getRef(id)
     .then(response => {
         response.text()
         .then(data => {
@@ -101,12 +116,46 @@ export const getHomeworld = (id) => (dispatch) => {
     }
     )
 }
+export const getFilms = (films) =>  (dispatch) => {
+    let filmsTitles = []
+    let filmsUrl = []
+        api.getRef(`https://swapi.co/api/films`)
+        .then(response => {
+            response.text()
+            .then(data => {
+                let json = JSON.parse(data);
+                for (let i=0;i<json.results.length;i++) {
+                    if (films.includes(json.results[i].url)) {
+                        filmsUrl.push(json.results[i].url)
+                        
+                    }
+                }
+            }).then(() => {
+                for (let i =0;i<filmsUrl.length;i++) {
+                api.getRef(filmsUrl[i])
+                .then(response => {
+                    response.text()
+                    .then(data => {
+                        let json = JSON.parse(data);
+                        filmsTitles.push(json.title)
+                    })
+                    .then(() => {
+                        if (filmsTitles.length === filmsUrl.length) {
+                            dispatch(setFilmsTitles(filmsTitles))
+                        }
+                    })
+                })
+                }
+            })
+        }
+        )
+}
 
 const api = {
     get(id) {
         return fetch(`https://swapi.co/api/people/${id}`)
     },
-    getHomeworld(ref) {
+    getRef(ref) {
         return fetch(ref)
     },
     getPlanet(id) {

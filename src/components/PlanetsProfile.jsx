@@ -7,7 +7,6 @@ class PlanetsProfile extends React.Component {
     componentWillUnmount() {
         this.props.clearData()
     }
-    
     render() {
         return (
             <div className="profile">
@@ -18,6 +17,10 @@ class PlanetsProfile extends React.Component {
                     {this.props.planetName &&<p>Name: {this.props.planetName}</p>}
                     {this.props.rotation &&<p>Rotation period: {this.props.rotation}</p>}
                     {this.props.climate &&<p>Climate: {this.props.climate}</p>}
+                    {this.props.population &&<p>Population: {this.props.population}</p>}
+                    {this.props.filmsTitlesArr &&<p><b>Films:</b></p>}
+                    {this.props.filmsTitlesArr && this.props.filmsTitlesArr.map((film,index) => {return <p key={index}>{film}</p>})}
+
                 </div>
             </div>
 

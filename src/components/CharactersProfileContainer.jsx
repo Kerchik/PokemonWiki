@@ -1,4 +1,4 @@
-import Profile from './Profile'
+import CharactersProfile from './CharactersProfile'
 import {connect} from 'react-redux'
 import {changeId} from '../redux/charactersReducer'
 import {getCharacterInfo,clearData} from '../redux/profileReducer'
@@ -29,5 +29,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
-export default ProfileContainer;
+const CharactersProfileContainer = connect(mapStateToProps, mapDispatchToProps)(CharactersProfile)
+export default CharactersProfileContainer;

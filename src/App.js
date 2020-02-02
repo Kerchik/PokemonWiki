@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ProfileContainer from './components/ProfileContainer';
+import CharactersProfileContainer from './components/CharactersProfileContainer';
 import PlanetsProfileContainer  from './components/PlanetsProfileContainer';
 import {Route} from 'react-router-dom'
 import Header from './components/Header.jsx'
@@ -17,7 +17,7 @@ function App() {
       <Route exact path="/Characters"
         render={(props) => characters.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Characters"}/>)}/>  
       <Route exact path="/Characters/info"
-        render={(props) => <ProfileContainer {...props}  />}/>
+        render={(props) => <CharactersProfileContainer {...props}  />}/>
       <Route exact path="/Planets/info"
         render={(props) => <PlanetsProfileContainer {...props}  />}/>
       <Route exact path="/Planets"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Profile extends React.Component {
+class CharactersProfile extends React.Component {
     componentDidMount() {
         this.props.getCharacterInfo(this.props.id)
     }
@@ -28,4 +28,4 @@ class Profile extends React.Component {
 }
 }
 
-export default Profile
+export default CharactersProfile

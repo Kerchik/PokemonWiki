@@ -6,10 +6,7 @@ import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
 const MainMenu = (props) => {
     let [isHidden, setIsHidden] = useState(true)
-    let click = () => {
-        //props.changeId(props.id);
-        //props.changePhoto(props.photo);
-    }
+
     let textAppear = () => {
         setIsHidden(false)
     }
@@ -17,7 +14,7 @@ const MainMenu = (props) => {
         setIsHidden(true)
     }
     return (
-        <div className="card" onClick={click} onMouseOver={textAppear} onMouseOut={textDissapear}>
+        <div className="card" onMouseOver={textAppear} onMouseOut={textDissapear}>
             <NavLink to={props.name}>
                 <img className="transform" alt={props.name} src={props.photo} id={props.id}/>
                 <TransitionGroup timeout={0}>
