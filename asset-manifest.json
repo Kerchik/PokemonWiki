@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/StarWarsWiki/static/css/main.250b13d5.chunk.css",
-    "main.js": "/StarWarsWiki/static/js/main.b3f94992.chunk.js",
-    "main.js.map": "/StarWarsWiki/static/js/main.b3f94992.chunk.js.map",
+    "main.js": "/StarWarsWiki/static/js/main.1dd5c065.chunk.js",
+    "main.js.map": "/StarWarsWiki/static/js/main.1dd5c065.chunk.js.map",
     "runtime-main.js": "/StarWarsWiki/static/js/runtime-main.23ec759d.js",
     "runtime-main.js.map": "/StarWarsWiki/static/js/runtime-main.23ec759d.js.map",
-    "static/js/2.3168125b.chunk.js": "/StarWarsWiki/static/js/2.3168125b.chunk.js",
-    "static/js/2.3168125b.chunk.js.map": "/StarWarsWiki/static/js/2.3168125b.chunk.js.map",
+    "static/js/2.8e62e7d9.chunk.js": "/StarWarsWiki/static/js/2.8e62e7d9.chunk.js",
+    "static/js/2.8e62e7d9.chunk.js.map": "/StarWarsWiki/static/js/2.8e62e7d9.chunk.js.map",
     "index.html": "/StarWarsWiki/index.html",
-    "precache-manifest.020a3778668230d3d99fec406b749294.js": "/StarWarsWiki/precache-manifest.020a3778668230d3d99fec406b749294.js",
+    "precache-manifest.07508722f24085b75f9d208f9e4d0c4c.js": "/StarWarsWiki/precache-manifest.07508722f24085b75f9d208f9e4d0c4c.js",
     "service-worker.js": "/StarWarsWiki/service-worker.js",
     "static/css/main.250b13d5.chunk.css.map": "/StarWarsWiki/static/css/main.250b13d5.chunk.css.map",
-    "static/js/2.3168125b.chunk.js.LICENSE": "/StarWarsWiki/static/js/2.3168125b.chunk.js.LICENSE",
+    "static/js/2.8e62e7d9.chunk.js.LICENSE": "/StarWarsWiki/static/js/2.8e62e7d9.chunk.js.LICENSE",
     "static/media/sw.png": "/StarWarsWiki/static/media/sw.b78faeed.png"
   },
   "entrypoints": [
     "static/js/runtime-main.23ec759d.js",
-    "static/js/2.3168125b.chunk.js",
+    "static/js/2.8e62e7d9.chunk.js",
     "static/css/main.250b13d5.chunk.css",
-    "static/js/main.b3f94992.chunk.js"
+    "static/js/main.1dd5c065.chunk.js"
   ]
 }
