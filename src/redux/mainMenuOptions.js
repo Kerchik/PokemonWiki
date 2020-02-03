@@ -14,4 +14,9 @@ export const mainMenuOptions = [
         name: "Films",
         photo: "https://images-na.ssl-images-amazon.com/images/I/91H91NbI2xL._SL1500_.jpg"
     },
+    {
+        id: 4,
+        name: "Starships",
+        photo: "https://vignette.wikia.nocookie.net/starwars/images/4/47/Rebels-TantiveIVConceptArt-CroppedBackground.png/revision/latest?cb=20150215073634"
+    },
 ]

@@ -10,5 +10,8 @@ export const api = {
     },
     getFilm(id) {
         return fetch(`https://swapi.co/api/films/${id}`,{method: "POST"})
-    }
+    },
+    getStarship(id) {
+        return fetch(`https://swapi.co/api/starships/${id}`,{method: "POST"})
+    },
 }
