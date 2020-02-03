@@ -1,6 +1,5 @@
 import CharactersProfile from './CharactersProfile'
 import {connect} from 'react-redux'
-import {changeId} from '../redux/dataReducer'
 import {getCharacterInfo,clearData} from '../redux/charactersReducer'
 
 const mapStateToProps = (state) => {
@@ -17,9 +16,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeId: (newPostText) => {
-            dispatch(changeId(newPostText));
-        },
         getCharacterInfo: (id) => {
             dispatch(getCharacterInfo(id));
         },

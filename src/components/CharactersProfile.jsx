@@ -1,31 +1,35 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import loading from '../img/loadingGif.gif'
 
-class CharactersProfile extends React.Component {
-    componentDidMount() {
-        this.props.getCharacterInfo(this.props.id)
-    }
-    componentWillUnmount() {
-        this.props.clearData()
-    }
+
+let CharactersProfile = (props) => {
+    useEffect(() => {
+        props.getCharacterInfo(props.id)
     
-    render() {
+        return function willUnmount() {
+            props.clearData()
+        };
+      },[]);
+
+
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={this.props.name} src={this.props.photo} />
+                    <img className="mainPhoto" alt={props.name} src={props.photo} />
                 </div>
                 <div className="characterInfo">
-                    {this.props.name &&<p>Name: {this.props.name}</p>}
-                    {this.props.height &&<p>Height: {this.props.height}</p>}
-                    {this.props.mass &&<p>Mass: {this.props.mass}</p>}
-                    {this.props.hairColor &&<p>Hair Color: {this.props.hairColor}</p>}
-                    {this.props.gender &&<p>Gender: {this.props.gender}</p>}
-                    {this.props.homeworld && <p>Homeworld: {this.props.homeworld}</p>}
+                    {props.name &&<p>Name: {props.name}</p>}
+                    {props.height &&<p>Height: {props.height}</p>}
+                    {props.mass &&<p>Mass: {props.mass}</p>}
+                    {props.hairColor &&<p>Hair Color: {props.hairColor}</p>}
+                    {props.gender &&<p>Gender: {props.gender}</p>}
+                    {props.homeworld 
+                    ? <p>Homeworld: {props.homeworld}</p>
+                    : <img className="loading" src={loading} />}
                 </div>
             </div>
 
         )
-}
 }
 
 export default CharactersProfile

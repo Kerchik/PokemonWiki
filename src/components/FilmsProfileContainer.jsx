@@ -1,6 +1,5 @@
 import FilmsProfile from './FilmsProfile'
 import {connect} from 'react-redux'
-import {changeId} from '../redux/dataReducer'
 import {getFilmInfo,clearData} from '../redux/filmsReducer'
 
 const mapStateToProps = (state) => {
@@ -16,9 +15,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeId: (newPostText) => {
-            dispatch(changeId(newPostText));
-        },
         getFilmInfo: (id) => {
             dispatch(getFilmInfo(id));
         },

@@ -1,31 +1,34 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import loading from '../img/loadingGif.gif'
 
-class PlanetsProfile extends React.Component {
-    componentDidMount() {
-        this.props.getPlanetInfo(this.props.id)
-    }
-    componentWillUnmount() {
-        this.props.clearData()
-    }
-    render() {
+let  PlanetsProfile = (props) => {
+    useEffect(() => {
+        props.getPlanetInfo(props.id)
+    
+        return function willUnmount() {
+            props.clearData()
+        };
+      },[]);
+
+
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={this.props.planetName} src={this.props.photo} />
+                    <img className="mainPhoto" alt={props.planetName} src={props.photo} />
                 </div>
+                
                 <div className="characterInfo">
-                    {this.props.planetName &&<p>Name: {this.props.planetName}</p>}
-                    {this.props.rotation &&<p>Rotation period: {this.props.rotation}</p>}
-                    {this.props.climate &&<p>Climate: {this.props.climate}</p>}
-                    {this.props.population &&<p>Population: {this.props.population}</p>}
-                    {this.props.filmsTitlesArr &&<p><b>Films:</b></p>}
-                    {this.props.filmsTitlesArr && this.props.filmsTitlesArr.map((film,index) => {return <p key={index}>{film}</p>})}
+                    {props.planetName &&<p>Name: {props.planetName}</p>}
+                    {props.rotation &&<p>Rotation period: {props.rotation}</p>}
+                    {props.climate &&<p>Climate: {props.climate}</p>}
+                    {props.population &&<p>Population: {props.population}</p>}
+                    {props.filmsTitlesArr ? <p><b>Films:</b></p> : <img className="loading" src={loading} />}
+                    {props.filmsTitlesArr && props.filmsTitlesArr.map((film,index) => {return <p key={index}>{film}</p>})}
 
                 </div>
             </div>
 
         )
-}
 }
 
 export default PlanetsProfile
