@@ -46,8 +46,33 @@ export const characters = [
     },
     {
         id: 10,
-        name: "Obi-Wan Kenobi   ",
+        name: "Obi-Wan Kenobi",
         photo: "https://vignette.wikia.nocookie.net/starwars/images/4/4e/ObiWanHS-SWE.jpg/revision/latest?cb=20111115052816"
+    },
+    {
+        id: 11,
+        name: "Anakin Skywalker",
+        photo: "https://townsquare.media/site/442/files/2015/12/anakin-force-ghost-star-wars-pic.jpg?w=980&q=75"
+    },
+    {
+        id: 12,
+        name: "Wilhuff Tarkin",
+        photo: "https://vignette.wikia.nocookie.net/starwars/images/c/c1/Tarkininfobox.jpg/revision/latest?cb=20100620213033"
+    },
+    {
+        id: 13,
+        name: "Chewbacca",
+        photo: "https://vignette.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png/revision/latest?cb=20190830144754"
+    },
+    {
+        id: 14,
+        name: "Han Solo",
+        photo: "https://pbs.twimg.com/profile_images/952120658955182080/9ZXXTkOH.jpg"
+    },
+    {
+        id: 15,
+        name: "Greedo",
+        photo: "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg/revision/latest?cb=20180209034210"
     },
 
 ]

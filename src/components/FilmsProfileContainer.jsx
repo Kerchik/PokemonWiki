@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
         episodeId: state.films.episodeId,
         director: state.films.director,
         releaseDate: state.films.releaseDate,
+        charactersArr: state.films.filmCharactersArr
         
     }
 }
