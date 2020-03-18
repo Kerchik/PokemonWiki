@@ -1,9 +1,9 @@
 const CHANGE_ID = "CHANGE_ID"
 const CHANGE_PHOTO = "CHANGE_PHOTO"
 
-let initialState = {
-    id: "",
-    photo: ""
+const initialState = {
+    id: null,
+    photo: null
 }
 
 const dataReducer = (state = initialState, action) => {

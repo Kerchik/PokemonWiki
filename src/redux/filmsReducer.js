@@ -4,7 +4,7 @@ const CLEAR_DATA = "CLEAR_DATA"
 const SET_FILM = "SET_FILM"
 const SET_FILM_CHARACTERS = "SET_FILM_CHARACTERS"
 
-let initialState = {
+const initialState = {
     title: null,
     episodeId: null,
     director: null,
@@ -44,8 +44,8 @@ const filmsReducer = (state = initialState, action) => {
     }
 }
 
-export const setFilm = (title,episode_id,director,release_date) => ({type: SET_FILM, title,episode_id,director,release_date})
-export const setFilmCharacters = (charactersArr) => ({type: SET_FILM_CHARACTERS, charactersArr})
+const setFilm = (title,episode_id,director,release_date) => ({type: SET_FILM, title,episode_id,director,release_date})
+const setFilmCharacters = (charactersArr) => ({type: SET_FILM_CHARACTERS, charactersArr})
 export const clearData = () => ({type: CLEAR_DATA})
 
 
@@ -54,34 +54,34 @@ export const getFilmInfo = (id) => (dispatch) => {
     .then(response => {
         response.text()
         .then(data => {
-            let json = JSON.parse(data);
-            dispatch(setFilm(json.title,json.episode_id,json.director,json.release_date))
-            dispatch(getFilmCharacters(json.characters))
+            const {title, episode_id, director, release_date, characters} = JSON.parse(data);
+            dispatch(setFilm(title, episode_id, director, release_date))
+            dispatch(getFilmCharacters(characters))
         })
     }
     )
 }
-export const getFilmCharacters = (characters) =>  (dispatch) => {
-    let charactersNames = []
-    let charactersUrl = []
+const getFilmCharacters = (characters) =>  (dispatch) => {
+    const charactersNames = []
+    const charactersUrl = []
         api.getRef(`https://swapi.co/api/people`)
         .then(response => {
             response.text()
             .then(data => {
-                let json = JSON.parse(data);
-                for (let i=0;i<json.results.length;i++) {
-                    if (characters.includes(json.results[i].url)) {
-                        charactersUrl.push(json.results[i].url)
+                const {results} = JSON.parse(data);
+                for (let i=0;i<results.length;i++) {
+                    if (characters.includes(results[i].url)) {
+                        charactersUrl.push(results[i].url)
                     }
                 }
-            }) .then(() => {
+            }).then(() => {
                 for (let i =0;i<charactersUrl.length;i++) {
                 api.getRef(charactersUrl[i])
                 .then(response => {
                     response.text()
                     .then(data => {
-                        let json = JSON.parse(data);
-                        charactersNames.push(json.name)
+                        const {name} = JSON.parse(data);
+                        charactersNames.push(name)
                     })
                     .then(() => {
                         if (charactersNames.length === charactersUrl.length) {

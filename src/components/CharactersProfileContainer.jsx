@@ -2,28 +2,18 @@ import CharactersProfile from './CharactersProfile'
 import {connect} from 'react-redux'
 import {getCharacterInfo,clearData} from '../redux/charactersReducer'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({data, profile}) => {
     return {
-        id: state.data.id,
-        photo: state.data.photo,
-        name: state.profile.name,
-        height: state.profile.height,
-        mass: state.profile.mass,
-        gender: state.profile.gender,
-        hairColor: state.profile.hairColor,
-        homeworld: state.profile.homeworld,
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getCharacterInfo: (id) => {
-            dispatch(getCharacterInfo(id));
-        },
-        clearData: () => {
-            dispatch(clearData());
-        },
+        id: data.id,
+        photo: data.photo,
+        name: profile.name,
+        height: profile.height,
+        mass: profile.mass,
+        gender: profile.gender,
+        hairColor: profile.hairColor,
+        homeworld: profile.homeworld,
     }
 }
 
-const CharactersProfileContainer = connect(mapStateToProps, mapDispatchToProps)(CharactersProfile)
+const CharactersProfileContainer = connect(mapStateToProps, {getCharacterInfo, clearData})(CharactersProfile)
 export default CharactersProfileContainer;

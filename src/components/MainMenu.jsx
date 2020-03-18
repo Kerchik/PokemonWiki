@@ -3,22 +3,21 @@ import '../App.css';
 import {NavLink} from 'react-router-dom'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
+const MainMenu = ({name, photo, id}) => {
+    const [isHidden, setIsHidden] = useState(true)
 
-const MainMenu = (props) => {
-    let [isHidden, setIsHidden] = useState(true)
-
-    let textAppear = () => {
+    const textAppear = () => {
         setIsHidden(false)
     }
-    let textDissapear = () => {
+    const textDissapear = () => {
         setIsHidden(true)
     }
     return (
         <div className="card" onMouseOver={textAppear} onMouseOut={textDissapear}>
-            <NavLink to={props.name}>
-                <img className="transform" alt={props.name} src={props.photo} id={props.id}/>
+            <NavLink to={name}>
+                <img className="transform" alt={name} src={photo} id={id}/>
                 <TransitionGroup timeout={0}>
-                    {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{props.name}</div></CSSTransition>}
+                    {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{name}</div></CSSTransition>}
                 </TransitionGroup>
             </NavLink>
         </div>

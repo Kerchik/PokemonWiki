@@ -1,37 +1,29 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
 
-let FilmsProfile = (props) => {
-    /* componentDidMount() {
-        this.props.getFilmInfo(this.props.id)
-    }
-    componentWillUnmount() {
-        this.props.clearData()
-    } */
+const FilmsProfile = ({title, id, photo, episodeId, getFilmInfo, clearData, director, releaseDate, charactersArr}) => {
     useEffect(() => {
-        props.getFilmInfo(props.id)
+        getFilmInfo(id)
     
         return function willUnmount() {
-            props.clearData()
+            clearData()
         };
       },[]);
-
 
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={props.title} src={props.photo} />
+                    <img className="mainPhoto" alt={title} src={photo} />
                 </div>
                 <div className="characterInfo">
-                    {props.title &&<p>Title: {props.title}</p>}
-                    {props.episodeId &&<p>Episode №: {props.episodeId}</p>}
-                    {props.director &&<p>Director: {props.director}</p>}
-                    {props.releaseDate && <p>Release Data: {props.releaseDate}</p>}
-                    {props.charactersArr ? <p><b>Films:</b></p> : <img className="loading" src={loading} />}
-                    {props.charactersArr && props.charactersArr.map((ch,index) => {return <p key={index}>{ch}</p>})}
+                    {title &&<p>Title: {title}</p>}
+                    {episodeId &&<p>Episode №: {episodeId}</p>}
+                    {director &&<p>Director: {director}</p>}
+                    {releaseDate && <p>Release Data: {releaseDate}</p>}
+                    {charactersArr ? <p><b>Characters:</b></p> : <img className="loading" src={loading} />}
+                    {charactersArr && charactersArr.map((ch,index) => {return <p key={index}>{ch}</p>})}
                 </div>
             </div>
-
         )
 }
 

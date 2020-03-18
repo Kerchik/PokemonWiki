@@ -1,9 +1,6 @@
 export const api = {
-    get(id) {
+    getCharacter(id) {
         return fetch(`https://swapi.co/api/people/${id}`)
-    },
-    getRef(ref) {
-        return fetch(ref)
     },
     getPlanet(id) {
         return fetch(`https://swapi.co/api/planets/${id}`,{method:"POST"})
@@ -13,5 +10,8 @@ export const api = {
     },
     getStarship(id) {
         return fetch(`https://swapi.co/api/starships/${id}`,{method: "POST"})
+    },
+    getRef(ref) {
+        return fetch(ref)
     },
 }

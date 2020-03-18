@@ -5,14 +5,13 @@ const CLEAR_DATA = "CLEAR_DATA"
 const SET_HOMEWORLD = "SET_HOMEWORLD"
 
 
-let initialState = {
+const initialState = {
     name: null,
     height: null,
     mass: null,
     hairColor: null,
     gender: null,
     homeworld: null,
-    
 }
 
 const charactersReducer = (state = initialState, action) => {
@@ -49,31 +48,30 @@ const charactersReducer = (state = initialState, action) => {
     }
 }
 
-export const setCharacter = (name,height,mass,hairColor,gender) => ({type: SET_CHARACTER, name,height,mass,hairColor,gender})
-export const setHomeworld = (homeworld) => ({type: SET_HOMEWORLD, homeworld})
+const setCharacter = (name,height,mass,hairColor,gender) => ({type: SET_CHARACTER, name,height,mass,hairColor,gender})
+const setHomeworld = (homeworld) => ({type: SET_HOMEWORLD, homeworld})
 export const clearData = () => ({type: CLEAR_DATA})
 
 export const getCharacterInfo = (id) => (dispatch) => {
-    api.get(id)
+    api.getCharacter(id)
     .then(response => {
         response.text()
         .then(data => {
-            let json = JSON.parse(data);
-            dispatch(setCharacter(json.name,json.height,json.mass,json.hair_color,json.gender))
-            dispatch(getHomeworld(json.homeworld))
+            const {name, height, mass, hair_color, gender, homeworld} = JSON.parse(data);
+            dispatch(setCharacter(name, height, mass, hair_color, gender))
+            dispatch(getHomeworld(homeworld))
         })
     }
     )
 }
 
-export const getHomeworld = (id) => (dispatch) => {
-    api.getRef(id)
+const getHomeworld = (ref) => (dispatch) => {
+    api.getRef(ref)
     .then(response => {
         response.text()
         .then(data => {
-            let json = JSON.parse(data);
-            dispatch(setHomeworld(json.name))
-            
+            const {name} = JSON.parse(data);
+            dispatch(setHomeworld(name))
         })
     }
     )

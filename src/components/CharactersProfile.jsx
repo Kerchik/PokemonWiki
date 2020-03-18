@@ -1,34 +1,31 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
 
-
-let CharactersProfile = (props) => {
+const CharactersProfile = ({name, id, getCharacterInfo, clearData, photo, height, mass, hairColor, gender, homeworld}) => {
     useEffect(() => {
-        props.getCharacterInfo(props.id)
+        getCharacterInfo(id)
     
         return function willUnmount() {
-            props.clearData()
+            clearData()
         };
       },[]);
-
 
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={props.name} src={props.photo} />
+                    <img className="mainPhoto" alt={name} src={photo} />
                 </div>
                 <div className="characterInfo">
-                    {props.name &&<p>Name: {props.name}</p>}
-                    {props.height &&<p>Height: {props.height}</p>}
-                    {props.mass &&<p>Mass: {props.mass}</p>}
-                    {props.hairColor &&<p>Hair Color: {props.hairColor}</p>}
-                    {props.gender &&<p>Gender: {props.gender}</p>}
-                    {props.homeworld 
-                    ? <p>Homeworld: {props.homeworld}</p>
+                    {name &&<p>Name: {name}</p>}
+                    {height &&<p>Height: {height}</p>}
+                    {mass &&<p>Mass: {mass}</p>}
+                    {hairColor &&<p>Hair Color: {hairColor}</p>}
+                    {gender &&<p>Gender: {gender}</p>}
+                    {homeworld 
+                    ? <p>Homeworld: {homeworld}</p>
                     : <img className="loading" src={loading} />}
                 </div>
             </div>
-
         )
 }
 

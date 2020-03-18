@@ -7,7 +7,7 @@ import filmsReducer from "./filmsReducer";
 import starshipsReducer from "./starshipsReducer";
 
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     data: dataReducer,
     profile: charactersReducer,
     planets: planetsReducer,
@@ -15,5 +15,5 @@ let reducers = combineReducers({
     starships: starshipsReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware))
+const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 export default store;

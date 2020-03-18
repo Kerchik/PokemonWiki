@@ -4,7 +4,7 @@ const CLEAR_DATA = "CLEAR_DATA"
 const SET_PLANET = "SET_PLANET"
 const SET_FILMS_TITLES = "SET_FILMS_TITLES"
 
-let initialState = {
+const initialState = {
     planetName: null,
     climate: null,
     rotation: null,
@@ -44,8 +44,8 @@ const planetsReducer = (state = initialState, action) => {
     }
 }
 
-export const setPlanet = (planetName,rotation,climate,population) => ({type: SET_PLANET, planetName,rotation,climate,population})
-export const setFilmsTitles = (filmsArr) => ({type: SET_FILMS_TITLES, filmsArr})
+const setPlanet = (planetName,rotation,climate,population) => ({type: SET_PLANET, planetName,rotation,climate,population})
+const setFilmsTitles = (filmsArr) => ({type: SET_FILMS_TITLES, filmsArr})
 export const clearData = () => ({type: CLEAR_DATA})
 
 
@@ -54,28 +54,25 @@ export const getPlanetInfo = (id) => (dispatch) => {
     .then(response => {
         response.text()
         .then(data => {
-            let json = JSON.parse(data);
-            dispatch(setPlanet(json.name,json.rotation_period,json.climate,json.population))
-            dispatch(getFilms(json.films))
-            
-
+            const {name,rotation_period,climate,population, films} = JSON.parse(data);
+            dispatch(setPlanet(name,rotation_period,climate,population))
+            dispatch(getFilms(films))
         })
     }
     )
 }
 
-export const getFilms = (films) =>  (dispatch) => {
+const getFilms = (films) => (dispatch) => {
     let filmsTitles = []
     let filmsUrl = []
         api.getRef(`https://swapi.co/api/films`)
         .then(response => {
             response.text()
             .then(data => {
-                let json = JSON.parse(data);
-                for (let i=0;i<json.results.length;i++) {
-                    if (films.includes(json.results[i].url)) {
-                        filmsUrl.push(json.results[i].url)
-                        
+                const {results} = JSON.parse(data);
+                for (let i=0;i<results.length;i++) {
+                    if (films.includes(results[i].url)) {
+                        filmsUrl.push(results[i].url)
                     }
                 }
             }).then(() => {
@@ -84,8 +81,8 @@ export const getFilms = (films) =>  (dispatch) => {
                 .then(response => {
                     response.text()
                     .then(data => {
-                        let json = JSON.parse(data);
-                        filmsTitles.push(json.title)
+                        const {title} = JSON.parse(data);
+                        filmsTitles.push(title)
                     })
                     .then(() => {
                         if (filmsTitles.length === filmsUrl.length) {
@@ -98,7 +95,5 @@ export const getFilms = (films) =>  (dispatch) => {
         }
         )
 }
-
-
 
 export default planetsReducer;

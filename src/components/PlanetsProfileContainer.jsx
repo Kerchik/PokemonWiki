@@ -2,28 +2,17 @@ import PlanetsProfile from './PlanetsProfile'
 import {connect} from 'react-redux'
 import {clearData,getPlanetInfo} from '../redux/planetsReducer'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({data, planets}) => {
     return {
-        id: state.data.id,
-        photo: state.data.photo,
-        planetName: state.planets.planetName,
-        climate: state.planets.climate,
-        rotation: state.planets.rotation,
-        population: state.planets.population,
-        filmsTitlesArr: state.planets.filmsTitlesArr
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getPlanetInfo: (id) => {
-            dispatch(getPlanetInfo(id));
-        },
-        clearData: () => {
-            dispatch(clearData())
-        }
-        
+        id: data.id,
+        photo: data.photo,
+        planetName: planets.planetName,
+        climate: planets.climate,
+        rotation: planets.rotation,
+        population: planets.population,
+        filmsTitlesArr: planets.filmsTitlesArr
     }
 }
 
-const PlanetsProfileContainer = connect(mapStateToProps, mapDispatchToProps)(PlanetsProfile)
+const PlanetsProfileContainer = connect(mapStateToProps,{getPlanetInfo, clearData})(PlanetsProfile)
 export default PlanetsProfileContainer;

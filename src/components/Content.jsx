@@ -4,25 +4,25 @@ import {NavLink} from 'react-router-dom'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
 
-const Content = (props) => {
-    let [isHidden, setIsHidden] = useState(true)
-    let click = () => {
-        props.changeId(props.id);
-        props.changePhoto(props.photo);
+const Content = ({changeId, id, changePhoto, photo, type, name}) => {
+    const [isHidden, setIsHidden] = useState(true)
+    const click = () => {
+        changeId(id);
+        changePhoto(photo);
     }
-    let textAppear = () => {
+    const textAppear = () => {
         setIsHidden(false)
     }
-    let textDissapear = () => {
+    const textDissapear = () => {
         setIsHidden(true)
     }
-    const link = `${props.type}/info`
+    const link = `${type}/info`
         return (
         <div className="card" onClick={click} onMouseOver={textAppear} onMouseOut={textDissapear}>
             <NavLink to={link}>
-                <img className="transform" alt={props.name} src={props.photo} id={props.id}/>
+                <img className="transform" alt={name} src={photo} id={id}/>
                 <TransitionGroup timeout={0}>
-                    {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{props.name}</div></CSSTransition>}
+                    {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{name}</div></CSSTransition>}
                 </TransitionGroup>
             </NavLink>
         </div>

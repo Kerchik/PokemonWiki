@@ -3,7 +3,7 @@ import {api} from './api'
 const CLEAR_DATA = "CLEAR_DATA"
 const SET_STARSHIP = "SET_STARSHIP"
 
-let initialState = {
+const initialState = {
     starshipName: null,
     manufacturer: null,
     cost: null,
@@ -29,11 +29,6 @@ const starshipsReducer = (state = initialState, action) => {
         case CLEAR_DATA: {
             return {
                 ...state, 
-                planetName: null,
-                climate: null,
-                rotation: null,
-                population: null,
-                filmsTitlesArr: null,
                 starshipName: null,
                 manufacturer: null,
                 cost: null,
@@ -47,7 +42,7 @@ const starshipsReducer = (state = initialState, action) => {
     }
 }
 
-export const setStarship = (starshipName,manufacturer,cost,crew,passengers,starshipClass) => ({type: SET_STARSHIP, starshipName,manufacturer,cost,crew,passengers,starshipClass})
+const setStarship = (starshipName,manufacturer,cost,crew,passengers,starshipClass) => ({type: SET_STARSHIP, starshipName,manufacturer,cost,crew,passengers,starshipClass})
 export const clearData = () => ({type: CLEAR_DATA})
 
 export const getStarshipInfo = (id) => (dispatch) => {
@@ -55,8 +50,8 @@ export const getStarshipInfo = (id) => (dispatch) => {
     .then(response => {
         response.text()
         .then(data => {
-            let json = JSON.parse(data);
-            dispatch(setStarship(json.name,json.manufacturer,json.cost_in_credits,json.crew,json.passengers,json.starship_class))
+            const {name,manufacturer,cost_in_credits,crew,passengers,starship_class} = JSON.parse(data);
+            dispatch(setStarship(name,manufacturer,cost_in_credits,crew,passengers,starship_class))
         })
     }
     )

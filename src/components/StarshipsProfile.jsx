@@ -1,33 +1,29 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
 
-let StarshipsProfile = (props) => {
+const StarshipsProfile = ({starshipName, getStarshipInfo, clearData, id, photo, manufacturer, cost, crew, passengers, starshipClass }) => {
     useEffect(() => {
-        props.getStarshipInfo(props.id)
+        getStarshipInfo(id)
     
         return function willUnmount() {
-            props.clearData()
+            clearData()
         };
       },[]);
 
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={props.starshipName} src={props.photo} />
+                    <img className="mainPhoto" alt={starshipName} src={photo} />
                 </div>
-                
                 <div className="characterInfo">
-                    {props.starshipName ? <p>Name: {props.starshipName}</p> : <img className="loading" src={loading} />}
-                    {props.manufacturer &&<p>Manufacturer: {props.manufacturer}</p>}
-                    {props.cost &&<p>Cost: {props.cost}</p>}
-                    {props.crew &&<p>Crew: {props.crew}</p>}
-                    {props.passengers &&<p>Passengers: {props.passengers}</p>}
-                    {props.starshipClass &&<p>Starship class: {props.starshipClass}</p>}
-                   
-
+                    {starshipName ? <p>Name: {starshipName}</p> : <img className="loading" src={loading} />}
+                    {manufacturer &&<p>Manufacturer: {manufacturer}</p>}
+                    {cost &&<p>Cost: {cost}</p>}
+                    {crew &&<p>Crew: {crew}</p>}
+                    {passengers &&<p>Passengers: {passengers}</p>}
+                    {starshipClass &&<p>Starship class: {starshipClass}</p>}
                 </div>
             </div>
-
         )
 }
 

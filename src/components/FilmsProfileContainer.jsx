@@ -2,28 +2,18 @@ import FilmsProfile from './FilmsProfile'
 import {connect} from 'react-redux'
 import {getFilmInfo,clearData} from '../redux/filmsReducer'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({data, films}) => {
     return {
-        id: state.data.id,
-        photo: state.data.photo,
-        title: state.films.title,
-        episodeId: state.films.episodeId,
-        director: state.films.director,
-        releaseDate: state.films.releaseDate,
-        charactersArr: state.films.filmCharactersArr
+        id: data.id,
+        photo: data.photo,
+        title: films.title,
+        episodeId: films.episodeId,
+        director: films.director,
+        releaseDate: films.releaseDate,
+        charactersArr: films.filmCharactersArr
         
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getFilmInfo: (id) => {
-            dispatch(getFilmInfo(id));
-        },
-        clearData: () => {
-            dispatch(clearData());
-        },
-    }
-}
 
-const FilmsProfileContainer = connect(mapStateToProps, mapDispatchToProps)(FilmsProfile)
+const FilmsProfileContainer = connect(mapStateToProps, {getFilmInfo, clearData})(FilmsProfile)
 export default FilmsProfileContainer;

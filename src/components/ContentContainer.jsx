@@ -2,17 +2,5 @@ import Content from './Content'
 import {connect} from 'react-redux'
 import {changeId, changePhoto} from '../redux/dataReducer'
 
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changeId: (newId) => {
-            dispatch(changeId(newId));
-        },
-        changePhoto: (newPhoto) => {
-            dispatch(changePhoto(newPhoto));
-        }
-    }
-}
-
-const ContentContainer = connect(null, mapDispatchToProps)(Content)
+const ContentContainer = connect(null, {changeId, changePhoto})(Content)
 export default ContentContainer;

@@ -9,7 +9,6 @@ const Header = () => {
             <img src={logo}  alt="swLogo" className="graficLogo" />
         </Link>
       </div>
-      
     )
 }
 
