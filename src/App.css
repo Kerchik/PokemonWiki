@@ -1,6 +1,14 @@
 * {
   margin: 0
   }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Hide scrollbar for IE and Edge */
+  body {
+    -ms-overflow-style: none;
+  }
   .Header {
     background-color: black;
     width: 100%;
@@ -61,3 +69,4 @@
   .loading {
     width: 100px;
   }
+  
