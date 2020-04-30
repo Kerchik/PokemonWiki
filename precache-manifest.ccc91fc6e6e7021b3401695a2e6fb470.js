@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b4bf81e212882e3c19ffcc13ac42ac15",
+    "revision": "b32c7cb2a878d94305ddcccfc7b21367",
     "url": "/StarWarsWiki/index.html"
   },
   {
-    "revision": "81d5c332c8a645851ef4",
+    "revision": "8bd00b1255561197d925",
     "url": "/StarWarsWiki/static/css/main.682e7161.chunk.css"
   },
   {
-    "revision": "ac8f972c2c022d77a24c",
-    "url": "/StarWarsWiki/static/js/2.93621858.chunk.js"
+    "revision": "6a5bcea2fd6a2cf99a2b",
+    "url": "/StarWarsWiki/static/js/2.8a8e96a8.chunk.js"
   },
   {
     "revision": "e928fe768baa9832b5bc57eae021f30c",
-    "url": "/StarWarsWiki/static/js/2.93621858.chunk.js.LICENSE"
+    "url": "/StarWarsWiki/static/js/2.8a8e96a8.chunk.js.LICENSE"
   },
   {
-    "revision": "81d5c332c8a645851ef4",
-    "url": "/StarWarsWiki/static/js/main.9a8944b9.chunk.js"
+    "revision": "8bd00b1255561197d925",
+    "url": "/StarWarsWiki/static/js/main.5283b83d.chunk.js"
   },
   {
     "revision": "8beeed45d3a9e112073e",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/StarWarsWiki/static/media/loadingGif.e4b6323e.gif"
   },
   {
-    "revision": "b78faeed8c7dcb78eaed8e6502c331e7",
-    "url": "/StarWarsWiki/static/media/sw.b78faeed.png"
+    "revision": "e1b54715ed9dc6d86eb2b023f6be608f",
+    "url": "/StarWarsWiki/static/media/pokemon.e1b54715.png"
   }
 ]);
