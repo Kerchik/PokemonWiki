@@ -14,6 +14,9 @@ export const api = {
     getPokemon(id) {
         return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     },
+    getItem(id) {
+        return fetch(`https://pokeapi.co/api/v2/item/${id}`)
+    },
     getType(id) {
         return fetch(`https://pokeapi.co/api/v2/type/${id}`)
     },

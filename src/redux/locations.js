@@ -19,4 +19,14 @@ export const locations = [
         name: "Sunyshore City",
         photo: "https://i1.sndcdn.com/artworks-000537272910-0fasc7-t500x500.jpg"
     },
+    {
+        id: 5,
+        name: "Sinnoh Pokemon League",
+        photo: "https://cdn.bulbagarden.net/upload/thumb/8/88/Sinnoh_Pok%C3%A9mon_League_Pt.png/300px-Sinnoh_Pok%C3%A9mon_League_Pt.png"
+    },
+    {
+        id: 6,
+        name: "Oreburgh Mine",
+        photo: "https://cdn.bulbagarden.net/upload/thumb/a/a5/Oreburgh_Mine_B2F_Pt.png/290px-Oreburgh_Mine_B2F_Pt.png"
+    },
 ]

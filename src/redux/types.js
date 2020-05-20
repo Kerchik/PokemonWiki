@@ -19,4 +19,19 @@ export const types = [
         name: 'Poison',
         photo: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/032.png'
     },
+    {
+        id: 5,
+        name: 'Ground',
+        photo: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/027.png'
+    },
+    {
+        id: 6,
+        name: 'Rock',
+        photo: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/074.png'
+    },
+    {
+        id: 7,
+        name: 'Bug',
+        photo: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png'
+    },
 ]
