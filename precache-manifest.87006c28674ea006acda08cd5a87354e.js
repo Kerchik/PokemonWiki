@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3390a2775ee96c58dbe3d462f3dcf029",
+    "revision": "76097deece072d0aea9ce88d4b84d96f",
     "url": "/PokemonWiki/index.html"
   },
   {
-    "revision": "5540e57e05f52ae321e6",
+    "revision": "1a208124fad813c0e899",
     "url": "/PokemonWiki/static/css/main.682e7161.chunk.css"
   },
   {
-    "revision": "8f8c587eb42f016e72a3",
-    "url": "/PokemonWiki/static/js/2.957bb434.chunk.js"
+    "revision": "f911c0ca0aa68833329d",
+    "url": "/PokemonWiki/static/js/2.fd0c6951.chunk.js"
   },
   {
     "revision": "e928fe768baa9832b5bc57eae021f30c",
-    "url": "/PokemonWiki/static/js/2.957bb434.chunk.js.LICENSE"
+    "url": "/PokemonWiki/static/js/2.fd0c6951.chunk.js.LICENSE"
   },
   {
-    "revision": "5540e57e05f52ae321e6",
-    "url": "/PokemonWiki/static/js/main.fee05e02.chunk.js"
+    "revision": "1a208124fad813c0e899",
+    "url": "/PokemonWiki/static/js/main.1c188173.chunk.js"
   },
   {
     "revision": "7035878c1ad657b04f2f",
