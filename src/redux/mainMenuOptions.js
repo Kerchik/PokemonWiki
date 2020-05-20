@@ -1,22 +1,17 @@
 export const mainMenuOptions = [
     {
         id: 1,
-        name: "Characters",
-        photo: "https://lumiere-a.akamaihd.net/v1/images/luke-skywalker-i-am-a-jedi_fce1d84d.jpeg?region=204%2C0%2C414%2C413"
+        name: "Pokemons",
+        photo: "https://upload.wikimedia.org/wikipedia/ru/c/ca/%D0%91%D1%83%D0%BB%D1%8C%D0%B1%D0%B0%D0%B7%D0%B0%D0%B2%D1%80.png"
     },
     {
         id: 2,
-        name: "Planets",
-        photo: "https://vignette.wikia.nocookie.net/ru.starwars/images/7/7e/Tatooine_EotECR.png/revision/latest?cb=20180110135447"
+        name: "Types",
+        photo: "https://static.pokemonpets.com/images/monsters-images-800-800/2056-Shiny-Mankey.png"
     },
     {
         id: 3,
-        name: "Films",
-        photo: "https://images-na.ssl-images-amazon.com/images/I/91H91NbI2xL._SL1500_.jpg"
-    },
-    {
-        id: 4,
-        name: "Starships",
-        photo: "https://vignette.wikia.nocookie.net/starwars/images/4/47/Rebels-TantiveIVConceptArt-CroppedBackground.png/revision/latest?cb=20150215073634"
-    },
+        name: "Locations",
+        photo: "https://cdn.bulbagarden.net/upload/thumb/a/a6/Canalave_City_Pt.png/384px-Canalave_City_Pt.png"
+    }
 ]

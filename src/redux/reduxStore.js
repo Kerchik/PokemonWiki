@@ -1,18 +1,16 @@
 import {createStore, combineReducers, applyMiddleware} from "redux"
 import dataReducer from "./dataReducer"
-import charactersReducer from "./charactersReducer";
 import thunkMiddleware from 'redux-thunk'
-import planetsReducer from "./planetsReducer";
-import filmsReducer from "./filmsReducer";
-import starshipsReducer from "./starshipsReducer";
+import pokemonsReducer from "./pokemonsReducer";
+import typesReducer from './typesReducer';
+import locationsReducer from './locationsReducer';
 
 
 const reducers = combineReducers({
     data: dataReducer,
-    profile: charactersReducer,
-    planets: planetsReducer,
-    films: filmsReducer,
-    starships: starshipsReducer
+    pokemons: pokemonsReducer,
+    types: typesReducer,
+    locations: locationsReducer,
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))
