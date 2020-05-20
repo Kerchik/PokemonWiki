@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/StarWarsWiki/static/css/main.682e7161.chunk.css",
-    "main.js": "/StarWarsWiki/static/js/main.67f30434.chunk.js",
-    "main.js.map": "/StarWarsWiki/static/js/main.67f30434.chunk.js.map",
-    "runtime-main.js": "/StarWarsWiki/static/js/runtime-main.23ec759d.js",
-    "runtime-main.js.map": "/StarWarsWiki/static/js/runtime-main.23ec759d.js.map",
-    "static/js/2.957bb434.chunk.js": "/StarWarsWiki/static/js/2.957bb434.chunk.js",
-    "static/js/2.957bb434.chunk.js.map": "/StarWarsWiki/static/js/2.957bb434.chunk.js.map",
-    "index.html": "/StarWarsWiki/index.html",
-    "precache-manifest.482326113100b6005daa13bb020ccce7.js": "/StarWarsWiki/precache-manifest.482326113100b6005daa13bb020ccce7.js",
-    "service-worker.js": "/StarWarsWiki/service-worker.js",
-    "static/css/main.682e7161.chunk.css.map": "/StarWarsWiki/static/css/main.682e7161.chunk.css.map",
-    "static/js/2.957bb434.chunk.js.LICENSE": "/StarWarsWiki/static/js/2.957bb434.chunk.js.LICENSE",
-    "static/media/loadingGif.gif": "/StarWarsWiki/static/media/loadingGif.e4b6323e.gif",
-    "static/media/pokemon.png": "/StarWarsWiki/static/media/pokemon.e1b54715.png"
+    "main.css": "/PokemonWiki/static/css/main.682e7161.chunk.css",
+    "main.js": "/PokemonWiki/static/js/main.fee05e02.chunk.js",
+    "main.js.map": "/PokemonWiki/static/js/main.fee05e02.chunk.js.map",
+    "runtime-main.js": "/PokemonWiki/static/js/runtime-main.42fc6dbe.js",
+    "runtime-main.js.map": "/PokemonWiki/static/js/runtime-main.42fc6dbe.js.map",
+    "static/js/2.957bb434.chunk.js": "/PokemonWiki/static/js/2.957bb434.chunk.js",
+    "static/js/2.957bb434.chunk.js.map": "/PokemonWiki/static/js/2.957bb434.chunk.js.map",
+    "index.html": "/PokemonWiki/index.html",
+    "precache-manifest.deaba1de5532326efec13d9bd58da958.js": "/PokemonWiki/precache-manifest.deaba1de5532326efec13d9bd58da958.js",
+    "service-worker.js": "/PokemonWiki/service-worker.js",
+    "static/css/main.682e7161.chunk.css.map": "/PokemonWiki/static/css/main.682e7161.chunk.css.map",
+    "static/js/2.957bb434.chunk.js.LICENSE": "/PokemonWiki/static/js/2.957bb434.chunk.js.LICENSE",
+    "static/media/loadingGif.gif": "/PokemonWiki/static/media/loadingGif.e4b6323e.gif",
+    "static/media/pokemon.png": "/PokemonWiki/static/media/pokemon.e1b54715.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.23ec759d.js",
+    "static/js/runtime-main.42fc6dbe.js",
     "static/js/2.957bb434.chunk.js",
     "static/css/main.682e7161.chunk.css",
-    "static/js/main.67f30434.chunk.js"
+    "static/js/main.fee05e02.chunk.js"
   ]
 }
