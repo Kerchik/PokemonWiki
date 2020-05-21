@@ -2,6 +2,8 @@ import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
 
 const LocationsProfile = ({id ,photo, locationName, regionName, areasArr, otherNamesArr, getLocationInfo, clearData}) => {
+    const images = require.context('../img', true);
+    let img = images('./locationImg/' + photo);
     useEffect(() => {
         getLocationInfo(id)
     
@@ -13,7 +15,7 @@ const LocationsProfile = ({id ,photo, locationName, regionName, areasArr, otherN
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={locationName} src={photo} />
+                    <img className="mainPhoto" alt={locationName} src={img} />
                 </div>
                 
                 <div className="characterInfo">

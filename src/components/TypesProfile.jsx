@@ -2,6 +2,8 @@ import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
 
 const TypesProfile = ({name, photo, getTypeInfo, id, clearData, moveDamageClass, pokemonArr}) => {
+    const images = require.context('../img', true);
+    let img = images('./typeImg/' + photo);
     useEffect(() => {
         getTypeInfo(id)
     
@@ -13,7 +15,7 @@ const TypesProfile = ({name, photo, getTypeInfo, id, clearData, moveDamageClass,
         return (
             <div className="profile">
                 <div>
-                    <img className="mainPhoto" alt={name} src={photo} />
+                    <img className="mainPhoto" alt={name} src={img} />
                 </div>
                 
                 <div className="characterInfo">

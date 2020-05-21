@@ -46,23 +46,10 @@ export const getTypeInfo = (id) => (dispatch) => {
                 if (i===10) break;
                 pokemonArr.push(pokemon[i].pokemon.name)
             }
-            //console.log(pokemonNames)
             dispatch(setType(name, move_damage_class.name, pokemonArr));
         })
     }
     )
 }
-/*
-const getHomeworld = (ref) => (dispatch) => {
-    api.getRef(ref)
-    .then(response => {
-        response.text()
-        .then(data => {
-            const {name} = JSON.parse(data);
-            //dispatch(setHomeworld(name))
-        })
-    }
-    )
-}
-*/
+
 export default typesReducer;

@@ -4,6 +4,8 @@ import {NavLink} from 'react-router-dom'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
 const MainMenu = ({name, photo, id}) => {
+    const images = require.context('../img', true);
+    let img = images('./mainMenuImg/' + photo);
     const [isHidden, setIsHidden] = useState(true)
 
     const textAppear = () => {
@@ -15,7 +17,7 @@ const MainMenu = ({name, photo, id}) => {
     return (
         <div className="card" onMouseOver={textAppear} onMouseOut={textDissapear}>
             <NavLink to={name}>
-                <img className="transform" alt={name} src={photo} id={id}/>
+                <img className="transform" alt={name} src={img} id={id}/>
                 <TransitionGroup timeout={0}>
                     {!isHidden && <CSSTransition timeout={0} classNames="option"><div className="onHoverText">{name}</div></CSSTransition>}
                 </TransitionGroup>

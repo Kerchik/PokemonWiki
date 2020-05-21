@@ -27,13 +27,13 @@ function App() {
       <Route exact path="/Items/info"
         render={(props) => <ItemsProfileContainer {...props}  />}/>
       <Route exact path="/Pokemons"
-        render={(props) => pokemons.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Pokemons"}/>)}/>
+        render={(props) => pokemons.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Pokemons"} folder="pokemonImg" />)}/>
       <Route exact path="/Types"
-        render={(props) => types.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Types"}/>)}/>
+        render={(props) => types.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Types"} folder="typeImg"/>)}/>
       <Route exact path="/Locations"
-        render={(props) => locations.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Locations"}/>)}/>
+        render={(props) => locations.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Locations"} folder="locationImg"/>)}/>
       <Route exact path="/Items"
-        render={(props) => items.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Items"}/>)}/>
+        render={(props) => items.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Items"} folder="itemImg"/>)}/>
       <Route exact path="/"
         render={(props) => mainMenuOptions.map(m => <MainMenu {...props} name={m.name} key={m.id} id={m.id} photo={m.photo}/>)}/>
     </div>
