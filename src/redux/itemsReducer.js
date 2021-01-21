@@ -41,9 +41,8 @@ export const getItemInfo = (id) => (dispatch) => {
         response.text()
         .then(data => {
             let {name, cost, effect_entries} = JSON.parse(data);
-            if (cost === 0) cost="0";
             const shortEffect = effect_entries[0].short_effect
-            dispatch(setItem(name, cost, shortEffect));
+            dispatch(setItem(name, String(cost), shortEffect));
         })
     }
     )

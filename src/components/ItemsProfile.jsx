@@ -1,8 +1,17 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
+import {items} from '../redux/items'
 
-const ItemsProfile = ({id ,photo, itemName, cost, shortEffect, getItemInfo, clearData}) => {
+const ItemsProfile = ({id ,photo, itemName, cost, shortEffect, getItemInfo, clearData, match}) => {
     const images = require.context('../img', true);
+    if (!photo && !id) {
+        id = match.params.id
+        items.forEach(item => {
+            if (item.id == id) {
+                photo= item.photo
+            }
+        })
+    }
     let img = images('./itemImg/' + photo);
     useEffect(() => {
         getItemInfo(id)

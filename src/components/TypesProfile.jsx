@@ -1,8 +1,17 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
+import {types} from '../redux/types'
 
-const TypesProfile = ({name, photo, getTypeInfo, id, clearData, moveDamageClass, pokemonArr}) => {
+const TypesProfile = ({name, photo, getTypeInfo, id, clearData, moveDamageClass, pokemonArr, match}) => {
     const images = require.context('../img', true);
+    if (!photo && !id) {
+        id = match.params.id
+        types.forEach(type => {
+            if (type.id == id) {
+                photo= type.photo
+            }
+        })
+    }
     let img = images('./typeImg/' + photo);
     useEffect(() => {
         getTypeInfo(id)

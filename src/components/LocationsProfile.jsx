@@ -1,8 +1,17 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
+import {locations} from '../redux/locations'
 
-const LocationsProfile = ({id ,photo, locationName, regionName, areasArr, otherNamesArr, getLocationInfo, clearData}) => {
+const LocationsProfile = ({id ,photo, locationName, regionName, areasArr, otherNamesArr, getLocationInfo, clearData, match}) => {
     const images = require.context('../img', true);
+    if (!photo && !id) {
+        id = match.params.id
+        locations.forEach(location => {
+            if (location.id == id) {
+                photo = location.photo
+            }
+        })
+    }
     let img = images('./locationImg/' + photo);
     useEffect(() => {
         getLocationInfo(id)

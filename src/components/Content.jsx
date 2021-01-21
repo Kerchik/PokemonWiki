@@ -17,7 +17,7 @@ const Content = ({changeId, id, changePhoto, photo, type, name, folder}) => {
     const textDissapear = () => {
         setIsHidden(true)
     }
-    const link = `${type}/info`
+    const link = `${type}/info/${id}`
         return (
         <div className="card" onClick={click} onMouseOver={textAppear} onMouseOut={textDissapear}>
             <NavLink to={link}>

@@ -1,8 +1,17 @@
 import React,{useEffect} from 'react'
 import loading from '../img/loadingGif.gif'
+import {pokemons} from '../redux/pokemons'
 
-const PokemonsProfile = ({name, weight, height, photo, abilitiesArr, typesArr, locationArr, getPokemonInfo, id, clearData}) => {
+const PokemonsProfile = ({name, weight, height, photo, abilitiesArr, typesArr, locationArr, getPokemonInfo, id, clearData, match}) => {
     const images = require.context('../img', true);
+    if (!photo && !id) {
+        id = match.params.id
+        pokemons.forEach(pokemon => {
+            if (pokemon.id == id) {
+                photo= pokemon.photo
+            }
+        })
+    }
     let img = images('./pokemonImg/' + photo);
     useEffect(() => {
         getPokemonInfo(id)

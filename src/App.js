@@ -18,13 +18,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Route exact path="/Pokemons/info"
+      <Route exact path="/Pokemons/info/:id"
         render={(props) => <PokemonsProfileContainer {...props}  />}/>
-      <Route exact path="/Types/info"
+      <Route exact path="/Types/info/:id"
         render={(props) => <TypesProfileContainer {...props}  />}/>
-      <Route exact path="/Locations/info"
+      <Route exact path="/Locations/info/:id"
         render={(props) => <LocationsProfileContainer {...props}  />}/>
-      <Route exact path="/Items/info"
+      <Route exact path="/Items/info/:id"
         render={(props) => <ItemsProfileContainer {...props}  />}/>
       <Route exact path="/Pokemons"
         render={(props) => pokemons.map(m => <ContentContainer {...props} name={m.name} key={m.id} id={m.id} photo={m.photo} type={"Pokemons"} folder="pokemonImg" />)}/>
